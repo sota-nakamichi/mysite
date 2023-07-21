@@ -1,0 +1,72 @@
+body {
+  width: 70%;
+  margin: 5rem auto;
+}
+.btn-square {
+  margin-top: 800px; /*トップへ戻るを体感*/
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-square:active {
+  /*ボタンがクリックされた状態の時に*/
+  transform: translateY(4px); /*下に移動*/
+  border-bottom: none; /*下部の境界線を非表示*/
+}
+.list-glay {
+  padding: 0;
+}
+.list-glay li {
+  color: #404040;
+  border-left: solid 6px #1fa67a; /*左側に緑の境界線*/
+  border-bottom: solid 2px #dadada; /*下部に灰色の境界線*/
+  background: whitesmoke;
+  margin-bottom: 5px; /*下部の外部余白*/
+  padding: 0.5em;
+  list-style-type: none; /*リストの黒丸を非表示*/
+  font-weight: bold;
+}
+h2 {
+  position: relative;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+}
+h2::after { /*既存の要素に対して追加の飾りや要素を生成*/
+  position: absolute; /*親要素がrelativeかfixedなら、親要素を起点に配置可能*/
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 15px 15px; /*斜めの切り口になっているborder同士の接地面を利用*/
+  border-style: solid;
+  border-color: #fff #fff #a8d4ff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.ribbon {
+  display: inline-block;
+  position: relative;
+  height: 60px; /*高さ*/
+  line-height: 60px; /*行の高さ*/
+  text-align: center;
+  padding: 0 40px 0 18px; /*文字の左右の余白*/
+  font-size: 48px; /*文字サイズ*/
+  background: #ffc668; /*背景色*/
+  color: #FFF; /*文字色*/
+}
+.ribbon::after { /*既存の要素に対して追加の飾りや要素を生成*/
+  position: absolute; /*親要素がrelativeかfixedなら、親要素を起点に配置可能*/
+  content: '';
+  width: 0px;
+  height: 0px;
+  top: 0;
+  right: 0;
+  border-width: 30px 15px 30px 0px; /*斜めの切り口になっているborder同士の接地面を利用*/
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
