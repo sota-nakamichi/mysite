@@ -1,0 +1,66 @@
+.ribbon {
+    width: 250px;
+    transition: all 1s 0s ease; /*適用プロパティ、変化の完了時間、変化開始前の遅延時間、変化の度合*/
+    animation: rotation 2s ease 0s 1 alternate forwards; /*アニメーション終了後の状態を維持*/
+    animation: ball 0.5s ease alternate infinite; /*キーフレームアニメーションを無限ループ*/
+}
+.ribbon:hover {
+    background: #ccc;
+    width: 100%;
+}
+.active {
+    animation: none; /*アニメーションを無効*/
+    transform: translateX(300px);
+    background: #ff0000;
+}
+/* @keyframes rotation {
+    0% {
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(0.6) rotate(-45deg);
+        background: red;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        background: blue;
+    }
+} */
+@keyframes ball{
+    0% {
+        transform:translate(0%, 0%);
+    }
+    100% {
+        transform:translate(0%, -20px);
+    }
+}
+.box-inner{
+    margin: 100px 0;
+}
+.box{
+    display: block; /*<img>をブロック要素として表示*/
+    position: relative;
+    width: 50%;
+    margin: 70px auto;
+}  
+.fade-in {
+    opacity: 0; /*"scroll-in"クラスが追加されるまで非表示*/
+    transition-duration: 500ms;
+    transition-property: opacity, transform;
+}  
+.fade-in-up {
+    transform: translate(0, 50px);
+}  
+.fade-in-down {
+    transform: translate(0, -50px);
+}  
+.fade-in-left {
+    transform: translate(-50px, 0);
+}  
+.fade-in-right {
+    transform: translate(50px, 0);
+}  
+.scroll-in {
+    opacity: 1; /*"scroll-in"クラスが追加されたら表示*/
+    transform: translate(0, 0);
+}

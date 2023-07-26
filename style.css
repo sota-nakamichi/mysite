@@ -1,9 +1,8 @@
-body {
+#main {
   width: 70%;
   margin: 5rem auto;
 }
 .btn-square {
-  margin-top: 800px; /*トップへ戻るを体感*/
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -20,7 +19,7 @@ body {
 .list-glay {
   padding: 0;
 }
-.list-glay li {
+.list-glay li { /*1つ目で指定した祖先要素をもつ、2つ目で指定したすべての子孫要素を飾り付け*/
   color: #404040;
   border-left: solid 6px #1fa67a; /*左側に緑の境界線*/
   border-bottom: solid 2px #dadada; /*下部に灰色の境界線*/
@@ -30,7 +29,7 @@ body {
   list-style-type: none; /*リストの黒丸を非表示*/
   font-weight: bold;
 }
-h2 {
+#favorite {
   position: relative;
   background: #dfefff;
   box-shadow: 0px 0px 0px 5px #dfefff;
@@ -38,7 +37,7 @@ h2 {
   padding: 0.2em 0.5em;
   color: #454545;
 }
-h2::after { /*既存の要素に対して追加の飾りや要素を生成*/
+#favorite::after { /*既存の要素に対して、後ろに追加の飾りや要素を生成*/
   position: absolute; /*親要素がrelativeかfixedなら、親要素を起点に配置可能*/
   content: '';
   left: -7px;
@@ -59,7 +58,7 @@ h2::after { /*既存の要素に対して追加の飾りや要素を生成*/
   background: #ffc668; /*背景色*/
   color: #FFF; /*文字色*/
 }
-.ribbon::after { /*既存の要素に対して追加の飾りや要素を生成*/
+.ribbon::after { /*既存の要素に対して、後ろに追加の飾りや要素を生成*/
   position: absolute; /*親要素がrelativeかfixedなら、親要素を起点に配置可能*/
   content: '';
   width: 0px;
@@ -69,4 +68,200 @@ h2::after { /*既存の要素に対して追加の飾りや要素を生成*/
   border-width: 30px 15px 30px 0px; /*斜めの切り口になっているborder同士の接地面を利用*/
   border-color: transparent #fff transparent transparent;
   border-style: solid;
+}
+blockquote {
+  position: relative;
+  padding: 10px 15px 10px 50px;
+  box-sizing: border-box;
+  font-style: italic; /*文字をイタリック体（斜体）で表示*/
+  background: #efefef;
+  color: #555;
+}
+blockquote::before { /*既存の要素に対して、前に追加の飾りや要素を生成*/
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: -3px;
+  content: "“"; /*追加した要素に表示する内容を指定*/
+  font-family: sans-serif;
+  color: #cfcfcf;
+  font-size: 90px;
+  line-height: 1;
+}
+blockquote p { /*1つ目で指定した祖先要素をもつ、2つ目で指定したすべての子孫要素を飾り付け*/
+  padding: 0;
+  margin: 10px 0;
+  line-height: 1.7;
+}
+blockquote cite { /*1つ目で指定した祖先要素をもつ、2つ目で指定したすべての子孫要素を飾り付け*/
+  display: block;
+  text-align: right;
+  color: #888888;
+  font-size: 0.9em;
+}
+.comment {
+  width: 50%;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  margin-top: 50px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 50px;
+  background: #e0edff;
+}
+.comment::before { /*既存の要素に対して、前に追加の飾りや要素を生成*/
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px; /*直角二等辺三角形の一辺の長さ分だけ左に移動*/
+  border: 15px solid transparent;
+  border-top: 15px solid #e0edff;
+}
+.comment p {
+  margin: 0;
+}
+.container {
+  display: flex; /*フレックスコンテナを設定、インライン要素・ブロックレベル要素に関わらず配置を制御*/
+  justify-content: space-around; /*フレックスアイテムの前後に均等なスペースを追加*/
+  border: solid 6px #abcf3e;
+  margin-top: 40px;
+}
+.dropdown {
+  margin-bottom: 10px;
+}
+#carouselExampleIndicators {
+  margin-bottom: 50px;
+}
+
+/* Navbar & Navmenu color */
+:root {
+  --background-navbar: rgba(55, 55, 55, 0.98);
+  --header: 52px; /*CSS変数--headerを定義*/
+  scroll-padding: calc(var(--header) + 30px); /*スクロールバーに余白を追加、スクロールバーとコンテンツの重なりを防ぐ*/
+}
+.header {
+  background: var(--background-navbar);
+  position: fixed;
+  width: 100%;
+  height: var(--header); /*CSS変数--headerの値を利用*/
+  top: 0; /*上辺からの距離を0に設定*/
+  z-index: 10; /*要素の重なり順を指定*/
+}
+/* Nav items */
+.menu {
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  margin-top: 52px;
+  padding: 0 0 10px 0;
+  clear: both;
+  background: var(--background-navbar);
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  transform: scale(1, 0);
+  transform-origin: top;
+}
+/* Hamburger menu button */
+.menu-btn:checked ~ .menu {
+  transform: scale(1, 1);
+  transform-origin: top;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+/* Hamburger menbu text */
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ddd;
+  opacity: 0;
+  transition: 0.5s;
+}
+.menu li {
+  border-top: 1px solid rgb(75, 75, 75);
+  padding: 15px 0;
+  margin: 0 54px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.menu-btn:checked ~ .menu a,
+.menu-btn:checked ~ .menu li {
+  opacity: 1;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+}
+.menu-btn {
+  display: none;
+}
+.menu-icon {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding: 24px 14px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.navicon {
+  background: #ddd;
+  display: block;
+  height: 3px;
+  width: 26px;
+  position: relative;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+.navicon:before,
+.navicon:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: #ddd;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+.navicon:before {
+  top: 9px;
+}
+.navicon:after {
+  bottom: 9px;
+}
+/* Hamburger Menu Animation Start */
+.menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+.menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+  top: 0;
+}
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  bottom: 0;
+}
+.menu-btn:checked ~ .menu-icon .navicon {
+  background: rgba(0, 0, 0, 0);
+  transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+/* Hamburger Menu Animation End */
+/* Navbar Container */
+.navtext-container {
+  width: 100%;
+  height: 52px;
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Navbar Text */
+.navtext {
+  position: absolute;
+  text-transform: uppercase;
+  color: #ddd;
+  letter-spacing: 4px;
+  font-size: 20px;
 }
