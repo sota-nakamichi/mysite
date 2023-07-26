@@ -9,7 +9,6 @@
     width: 100%;
 }
 .active {
-    animation: none; /*アニメーションを無効*/
     transform: translateX(300px);
     background: #ff0000;
 }

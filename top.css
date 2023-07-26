@@ -5,6 +5,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 body {
 	justify-content: center;
@@ -15,7 +16,6 @@ h1 {
   position: absolute;
   top: 20%;
   font-family: 'Lato', sans-serif;
-  font-weight:300;
   letter-spacing: 2px;
   font-size:48px;
 }
